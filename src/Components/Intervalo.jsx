@@ -17,7 +17,8 @@ function intervalo(props){
             </span>
             <span>
                 <strong>Maximo:</strong>
-                <input type="number" value={max} readOnly/>
+                <input type="number" value={max} 
+                onChange={e => props.alterarMaximo(+e.target.value)}/>
             </span>
            </div>
         </Card>
@@ -34,7 +35,11 @@ function mapStateToProps(state){
         alterarMinimo(novoNumero){
            const action = alterarNumeroMinimo(novoNumero)
            dispatch(action)
-        }
+        },
+        alterarMaximo(novoNumero){
+            const action = alterarNumeroMaximo(novoNumero)
+            dispatch(action)
+         }
     }
 }
 
